@@ -1,17 +1,22 @@
+import cors from 'cors'
+import dotenv from 'dotenv'
 import express from 'express'
 import data from './data.js'
-import dotenv from 'dotenv'
 dotenv.config()
 const app = express()
 
-const port = process.env.PORT || 3000 ;
+const port = process.env.PORT || 3000;
 
-app.get('/' , (req , res) => {
+app.use(cors({
+    origin: process.env.FRONTEND_URL
+}));
+
+app.get('/', (req, res) => {
     res.send(data)
 })
 
 // hello world
 
-app.listen(port , () => {
+app.listen(port, () => {
     console.log(`at port ${port}`)
 })
