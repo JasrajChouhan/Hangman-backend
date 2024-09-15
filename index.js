@@ -8,7 +8,7 @@ const app = express()
 const port = process.env.PORT || 3000;
 
 const frontendUrl = process.env.FRONTEND_URL || ""
-const frontendUrlPlay = process.env.FRONTEND_URL_PLAY ;
+const frontendUrlPlay = process.env.FRONTEND_URL_PLAY || "" ;
 
 const isProduction = process.env.NODE_ENV === 'production'
 
