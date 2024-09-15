@@ -7,8 +7,12 @@ const app = express()
 
 const port = process.env.PORT || 3000;
 
+const frontendUrl = process.env.FRONTEND_URL || ""
+
+const isProduction = process.env.NODE_ENV === 'production'
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL
+    origin: isProduction ? frontendUrl : ['http://localhost:5173/' , 'http://localhost:5173/play']
 }));
 
 app.get('/', (req, res) => {
