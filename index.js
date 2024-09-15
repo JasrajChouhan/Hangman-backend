@@ -8,7 +8,7 @@ const app = express()
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: '*'
+    origin: process.env.FRONTEND_URL
 }));
 
 app.get('/', (req, res) => {
